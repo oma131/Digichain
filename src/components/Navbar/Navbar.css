@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 18px;
+  }
+
+  .navbar {
+    background-color:  #070318;
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .listItem {
+    margin-right: 32px;
+  }
+
+
+  .logo {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+  }
+
+
+  .navMenu {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .buttonContainer {
+    width: 365px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 132px;
+  }
+  .hamburger {
+    display: none;
+  }
+
+
+  @media screen and (max-width: 1150px){
+
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+
+    .bar {
+          background-color: #6F4FF2;
+          width: 20px;
+          height: 3px;
+          display: block;
+          margin: 5px;
+          -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
+      }
+
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+
+
+    .navMenu{
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      top: 80px;
+      left: 100%;
+      text-align: start;
+      width: 100%;
+      transition: 0.7s ease-in-out;
+      background-color: hsla(0, 0%, 6%, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 10px;
+    }
+
+    .navMenu.active{
+      left: 0;
+      display: flex;
+    }
+
+    .navMenu li {
+      margin: 16px 0;
+    }
+    .buttonContainer {
+      width: 365px;
+      display: flex;
+      flex-direction: column-reverse;
+      margin-left: 232px;
+    }
+  }
+
+@media screen and (max-width: 300px){
+  .navbar {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1150px){
+  .navbar {
+    width: 100%;
+  }
+}
