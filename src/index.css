@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
+body {
+  background-color: #060317;
 }
 

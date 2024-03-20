@@ -12,19 +12,18 @@ const Role = () => {
     // Handle form submission here
     console.log("Selected option:", selectedOption);
   };
-  // bg-[#070318]
 
   return (
-    <div className='bg-[#070318] flex justify-center items-center h-[100vh] w-[100%]'>
-      <div className="bg-[#09061E] text-white w-[654px] h-[669px] max-w-sm mx-auto mt-8">
+    <div className='bg-[#070318]  flex justify-center items-center h-[100vh] w-[100%]'>
+      <div className="bg-[#09061E] text-white w-[654px] h-[569px] p-[92px] mx-auto mt-8 rounded-lg">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <h4>Login as</h4>
+          <h4 className='text-[24px] font-[700] text-center'>Login as</h4>
           <div>
-            <label className="inline-flex items-center bg-[#0F0C25] w-[468px] h-[72px] rounded-full">
-              <span className="ml-2">Option 1</span>
+            <label className="flex justify-between items-center px-[25px]  bg-[#0F0C25] w-[468px] h-[52px] rounded-full">
+              <span className="ml-2 text-[20px]">Manufacturer</span>
               <input
                 type="radio"
-                className="form-radio text-indigo-600"
+                className="form-radio text-[#6F4FF2] h-[22px] w-[22px]"
                 value="option1"
                 checked={selectedOption === 'option1'}
                 onChange={handleOptionChange}
@@ -33,11 +32,11 @@ const Role = () => {
             </label>
           </div>
           <div>
-            <label className="inline-flex items-center">
-              <span className="ml-2">Option 2</span>
+            <label className="flex justify-between items-center px-[25px]  bg-[#0F0C25] w-[468px] h-[52px] rounded-full">
+              <span className="ml-2 text-[20px]">Retailer</span>
               <input
                 type="radio"
-                className="form-radio text-indigo-600"
+                className="form-radio text-[#6F4FF2] h-[22px] w-[22px]"
                 value="option2"
                 checked={selectedOption === 'option2'}
                 onChange={handleOptionChange}
@@ -46,11 +45,11 @@ const Role = () => {
             </label>
           </div>
           <div>
-            <label className="inline-flex items-center">
-              <span className="ml-2">Option 3</span>
+            <label className="flex justify-between items-center px-[25px]  bg-[#0F0C25] w-[468px] h-[52px] rounded-full">
+              <span className="ml-2 text-[20px]">Distributor</span>
               <input
                 type="radio"
-                className="form-radio text-indigo-600"
+                className="form-radio text-[#6F4FF2] h-[22px] w-[22px]"
                 value="option3"
                 checked={selectedOption === 'option3'}
                 onChange={handleOptionChange}
@@ -59,11 +58,11 @@ const Role = () => {
             </label>
           </div>
           <div>
-            <label className="inline-flex items-center">
-              <span className="ml-2">Option 4</span>
+            <label className="flex justify-between items-center px-[25px]  bg-[#0F0C25] w-[468px] h-[52px] rounded-full">
+              <span className="ml-2 text-[20px]">Consumer</span>
               <input
                 type="radio"
-                className="form-radio text-indigo-600"
+                className="form-radio text-[#6F4FF2] h-[22px] w-[22px]"
                 value="option4"
                 checked={selectedOption === 'option4'}
                 onChange={handleOptionChange}
@@ -74,7 +73,7 @@ const Role = () => {
           <div>
             <button
               type="submit"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-[#6F4FF2] hover:bg-indigo-700 text-white py-2 px-4 text-[20px] w-[468px] h-[52px] rounded-full"
             >
               Submit
             </button>
