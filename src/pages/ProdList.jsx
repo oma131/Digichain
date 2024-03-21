@@ -1,9 +1,84 @@
-import React from 'react'
+/* eslint-disable react-refresh/only-export-components */
+import React, { useState } from 'react';
+import { shipments } from '../utils/shipmentData'
+import { FaList }from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
+import Button from '../components/Buttons/Button'
 
 const ProdList = () => {
-  return (
-    <div>ProdList</div>
-  )
-}
+  const [currentPage, setCurrentPage] = useState(1);
+  const shipmentsPerPage = 10;
 
-export default ProdList
+  // Calculate index of the first and last shipment of the current page
+  const indexOfLastShipment = currentPage * shipmentsPerPage;
+  const indexOfFirstShipment = indexOfLastShipment - shipmentsPerPage;
+  const currentShipments = shipments.slice(indexOfFirstShipment, indexOfLastShipment);
+
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
+  // Generate pagination buttons
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(shipments.length / shipmentsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  
+
+  return (
+    <div className='pt-[52px] pl-[42px]'>
+      <div className='flex justify-between'>
+        <div className='w-[375px] flex justify-between items-center'>
+          <div className='text-[24px] font-[600] flex items-center'>
+            <FaList />
+            <h2 className='ml-[16px]'>Product List</h2>
+          </div>
+          <div className='text-[16px] flex justify-center items-center bg-[#0F0C25] w-[88px] rounded-full'>
+            <p className='mr-[6px]'>Recent</p>
+            <IoIosArrowDown />
+          </div>
+        </div>
+        <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width:'108px', height:'44px'}} >Send</Button>
+      </div>
+      {currentShipments.map((shipment) => (
+        <div key={shipment.id} className="w-[985px] items-center bg-[#0F0C25] px-[43px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
+          <div className=''>
+            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+            <div className='text-[14px] font-[500]'>{shipment.productName}</div>
+          </div>
+          <div className='text-center'>
+            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+            <div className='text-[14px] font-[500]'>{shipment.productId}</div>
+          </div>
+          <div className='text-center'>
+            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+            <div className='text-[14px] font-[500]'>
+              {shipment.quantity}
+            </div>
+          </div>
+          
+
+          <input
+            type="checkbox"
+            className='w-[30px] h-[30px] flex justify-center items-center'
+          />
+          
+        </div>
+      ))}
+      {/* Pagination */}
+      <div className="w-[100%] flex justify-center mt-[20px]">
+        {pageNumbers.map(number => (
+          <button 
+            onClick={() => paginate(number)} 
+            className={`bg-[#6F4FF2] w-[30px] ml-[10px] rounded border ${currentPage === number ? 'bg-gray-500' : 'border-transparent'}`}
+            key={number} 
+            >
+            {number}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProdList;

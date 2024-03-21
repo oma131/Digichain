@@ -28,8 +28,6 @@ const App = () => {
           <Route path="/shipment" element={<Shipment />} />
           <Route path="/tracker" element={<Tracker />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/" exact component={CreateProd} />
-        <Route path="/products" component={ProdList} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

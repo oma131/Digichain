@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import {
-    FaTh,
-    FaList,
-}from "react-icons/fa";
+import { FaTh, FaList }from "react-icons/fa";
 import { TbSquareLetterD } from "react-icons/tb";
 import { FaRegSquarePlus } from "react-icons/fa6";
 import { CgMenuBoxed } from "react-icons/cg";
