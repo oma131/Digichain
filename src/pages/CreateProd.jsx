@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { FaRegSquarePlus } from "react-icons/fa6";
-// import { ProductContext } from '../components/ProductContext'
+
 
 const CreateProd = () => {
-  // const { addProduct } = useContext(ProductContext);
   const [productName, setProductName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -13,7 +12,8 @@ const CreateProd = () => {
   const [color, setColor] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
-  // const history = useHistory();
+  
+  const [submittedProducts, setSubmittedProducts] = useState([]);
 
   const handleNameChange = (e) => {
     setProductName(e.target.value);
@@ -69,10 +69,29 @@ const CreateProd = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // history.push('/products');
+    const newProduct = {
+      productName,
+      description,
+      image,
+      type,
+      color,
+      price,
+      quantity
+    };
+    setSubmittedProducts([...submittedProducts, newProduct]);
+    // Reset form fields after submission
+    setProductName('');
+    setDescription('');
+    setImage(null);
+    setFileName('');
+    setType('');
+    setColor('');
+    setPrice('');
+    setQuantity('');
   };
+
   return (
-    <div className='pt-[72px] pl-[42px]'>
+    <div className='pt-[72px] pl-[62px]'>
       <form className='w-full max-w-sm'>
         <div className="md:flex md:items-center">
           <div className="md:w-1/3"></div>
