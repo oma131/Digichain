@@ -114,7 +114,7 @@ const CreateProd = () => {
               value={productName}
               onChange={handleNameChange}
               placeholder='Product Name'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4 '
+              className='bg-[#0F0C25] border-[#0F0C25]  appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4 '
             />
           </div>
         </div>
@@ -129,7 +129,7 @@ const CreateProd = () => {
               value={description}
               onChange={handleDescriptionChange}
               placeholder='Product Description'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] h-[100px] ml-[50px] py-2 px-4 '
+              className='bg-[#0F0C25] border-[#0F0C25] appearance-none rounded-lg w-[400px] h-[100px] ml-[50px] py-2 px-4 '
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ const CreateProd = () => {
               value={type}
               onChange={handleTypeChange}
               placeholder='Prodyct Type'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
+              className='bg-[#0F0C25] border-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
             />
           </div>
         </div>
@@ -195,7 +195,7 @@ const CreateProd = () => {
               value={color}
               onChange={handleColorChange}
               placeholder='color'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4 '
+              className='bg-[#0F0C25] border-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4 '
             />
           </div>
         </div>
@@ -211,7 +211,7 @@ const CreateProd = () => {
               value={price}
               onChange={handlePriceChange}
               placeholder='price'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
+              className='bg-[#0F0C25] border-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
             />
           </div>
         </div>
@@ -227,7 +227,7 @@ const CreateProd = () => {
               value={quantity}
               onChange={handleQuantityChange}
               placeholder='quantity'
-              className='bg-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
+              className='bg-[#0F0C25] border-[#0F0C25] appearance-none rounded-lg w-[400px] ml-[50px] py-2 px-4'
             />
           </div>
         </div>
