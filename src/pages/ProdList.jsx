@@ -41,26 +41,33 @@ const ProdList = () => {
         <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width:'108px', height:'44px'}} >Send</Button>
       </div>
       {currentShipments.map((shipment) => (
-        <div key={shipment.id} className="w-[985px] items-center bg-[#0F0C25] px-[43px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
-          <div className=''>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
-            <div className='text-[14px] font-[500]'>{shipment.productName}</div>
-          </div>
-          <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
-            <div className='text-[14px] font-[500]'>{shipment.productId}</div>
-          </div>
-          <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
-            <div className='text-[14px] font-[500]'>
-              {shipment.quantity}
+        <div key={shipment.id} className="w-[985px] items-center bg-[#0F0C25] px-[67px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
+          <div className='w-[366px] flex justify-between items-center'>
+            <div className=''>
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500]'>{shipment.productName}</div>
+            </div>
+            <div className='text-center'>
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500]'>{shipment.productId}</div>
+            </div>
+            <div className='text-center'>
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500]'>
+                {shipment.quantity}
+              </div>
             </div>
           </div>
           
 
           <input
             type="checkbox"
-            className='w-[30px] h-[30px] flex justify-center items-center'
+            className='w-[30px] h-[30px] flex justify-center items-center rounded bg-red-100 border-white text-red-500 focus:ring-white'
+            style={{
+              backgroundColor: 'transparent', // Set initial background color
+              '--checked-bg-color': '#6F4FF2', // Define custom property for checked background color
+            }}
+            onChange={(e) => e.target.style.backgroundColor = e.target.checked ? 'var(--checked-bg-color)' : 'transparent'} // Change background color based on checkbox state
           />
           
         </div>
