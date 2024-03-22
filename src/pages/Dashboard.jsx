@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import Search from '../components/Search'
 import ShipmentTracker from '../components/ShipmentTracker';
-import RecentShipment from '../components/RecentShipment';
+import RecentShipments from '../components/RecentShipments';
 
 const Dashboard = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -15,12 +15,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='w-[100%] p-[42px] '>
+    <div className='w-[100%] p-[42px] pt-[10px]'>
       <div className='w-[969px] '>
         <Search onSearch={handleSearch} />
         <ShipmentTracker />
         <div>
-          <RecentShipment />
+          <RecentShipments />
         </div>
       </div>
     </div>

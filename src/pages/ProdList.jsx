@@ -1,12 +1,13 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { useState } from 'react';
-import { shipments } from '../utils/shipmentData'
-import { FaList }from "react-icons/fa";
+import { shipments } from '../utils/shipmentData';
+import { FaList } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import Button from '../components/Buttons/Button'
+import Button from '../components/Buttons/Button';
+import SendModal from '../components/SendModal'; // Import the SendFormModal component
 
 const ProdList = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal open/close
   const shipmentsPerPage = 10;
 
   // Calculate index of the first and last shipment of the current page
@@ -17,13 +18,14 @@ const ProdList = () => {
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
+  // Toggle modal
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   // Generate pagination buttons
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(shipments.length / shipmentsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  
 
   return (
     <div className='pt-[52px] pl-[42px]'>
@@ -38,27 +40,27 @@ const ProdList = () => {
             <IoIosArrowDown />
           </div>
         </div>
-        <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width:'108px', height:'44px'}} >Send</Button>
+        <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width: '108px', height: '44px' }} onClick={toggleModal}>Send</Button>
       </div>
       {currentShipments.map((shipment) => (
         <div key={shipment.id} className="w-[985px] items-center bg-[#0F0C25] px-[67px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
           <div className='w-[366px] flex justify-between items-center'>
             <div className=''>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div>
               <div className='text-[14px] font-[500]'>{shipment.productName}</div>
             </div>
             <div className='text-center'>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Product ID</div>
               <div className='text-[14px] font-[500]'>{shipment.productId}</div>
             </div>
             <div className='text-center'>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+              <div className='text-[14px] font-[500] text-[#3D3959]'>Quantity</div>
               <div className='text-[14px] font-[500]'>
                 {shipment.quantity}
               </div>
             </div>
           </div>
-          
+
 
           <input
             type="checkbox"
@@ -69,21 +71,24 @@ const ProdList = () => {
             }}
             onChange={(e) => e.target.style.backgroundColor = e.target.checked ? 'var(--checked-bg-color)' : 'transparent'} // Change background color based on checkbox state
           />
-          
+
         </div>
       ))}
       {/* Pagination */}
       <div className="w-[100%] flex justify-center mt-[20px]">
         {pageNumbers.map(number => (
-          <button 
-            onClick={() => paginate(number)} 
+          <button
+            onClick={() => paginate(number)}
             className={`bg-[#6F4FF2] w-[30px] ml-[10px] rounded border ${currentPage === number ? 'bg-gray-500' : 'border-transparent'}`}
-            key={number} 
-            >
+            key={number}
+          >
             {number}
           </button>
         ))}
       </div>
+
+      {/* Render the form modal */}
+      <SendModal isOpen={isModalOpen} onClose={toggleModal} />
     </div>
   );
 };

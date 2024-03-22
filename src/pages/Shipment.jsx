@@ -50,11 +50,11 @@ const Shipment = () => {
             <div className='text-[14px] font-[500]'>{shipment.productName}</div>
           </div>
           <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+            <div className='text-[14px] font-[500] text-[#3D3959]'>Product ID</div> 
             <div className='text-[14px] font-[500]'>{shipment.productId}</div>
           </div>
           <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
+            <div className='text-[14px] font-[500] text-[#3D3959]'>Status</div> 
             <div className={`text-[14px] font-[500] ${
               shipment.status === 'Delivered' ? 'text-green-500' :
               shipment.status === 'Pending' ? 'text-red-500' : 'text-yellow-500'
@@ -69,7 +69,7 @@ const Shipment = () => {
 
           <div className='w-[230px] flex justify-between'>
             <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width:'108px', height:'44px'}} >View</Button>
-            <Button style={{ width:'108px', height:'44px', color: 'white', border: '2px solid #6F4FF2' }}>TracK</Button>
+            <Button style={{ width:'108px', height:'44px', color: 'white', border: '2px solid #6F4FF2' }}>Track</Button>
           </div>
           
         </div>
