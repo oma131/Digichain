@@ -1,5 +1,3 @@
-
-
 export const shipments = [
     { 
       id: 1, 

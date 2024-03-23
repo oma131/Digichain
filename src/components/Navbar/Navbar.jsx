@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import Button from '../Buttons/Button';
+import { NavLink } from "react-router-dom";
 
 import './Navbar.css'; 
 const Navbar = () => {
@@ -34,15 +35,12 @@ const Navbar = () => {
           <a href='#home' className={`navLink`}>Home</a>
         </li>
         <li className='listItem' onClick={removeActive}>
-          <a href='#home' className={`navLink`}>Features</a>
-        </li>
-        <li className='listItem' onClick={removeActive}>
           <a href='#home' className={`navLink`}>Api</a>
         </li>
         <div className='buttonContainer'>
-          <Button style={{ backgroundColor: '#6F4FF2', color: 'white'}} >Connect Wallet</Button>
-          <Button style={{ backgroundColor: 'transparent', color: 'white', border: '2px solid #6F4FF2' }}>Track Product</Button>
-
+          <NavLink to='/wallet'>
+            <Button style={{ backgroundColor: '#6F4FF2', color: 'white', fontSize: '14px'}} >Connect Wallet</Button>
+          </NavLink>
         </div>
       </ul>
       

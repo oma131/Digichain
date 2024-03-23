@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from "react-router-dom";
 
 
 const Email = () => {
@@ -24,14 +25,14 @@ const Email = () => {
           </div>
           
           
-          <div>
+          <NavLink to='/dashboard'>
             <button
               type="submit"
-              className="bg-[#6F4FF2] hover:bg-indigo-700 text-white py-2 px-4 text-[20px] w-[468px] h-[52px] rounded-full"
+              className="bg-[#6F4FF2] border-none outline-none hover:bg-indigo-700 text-white py-2 px-4 text-[20px] w-[468px] h-[52px] rounded-full mt-[20px]"
             >
               Submit
             </button>
-          </div>
+          </NavLink>
         </form>
       </div>
     </div>

@@ -4,7 +4,7 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-    <div className="rounded-xl h-[460px] w-[312px] bg-[#0F0C25] p-4">
+    <div className="rounded-xl h-[460px] w-[250px] bg-[#0F0C25] p-4">
         <div className="flex items-center mt-[44px] gap-4">
             <img
             alt="How digichain work card"

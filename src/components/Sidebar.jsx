@@ -45,7 +45,7 @@ const Sidebar = ({children}) => {
         <div className="container">
            <div style={{width: "354px"}} className="sidebar">
                <div className="top_section">
-                    <h1 style={{display: "block"}} className="logo">Digichain</h1>
+                    <h1 style={{display: "block"}} className="text-[20px] font-[700] ml-[50px]">Digichain</h1>
                </div>
                {
                    menuItem.map((item, index)=>(

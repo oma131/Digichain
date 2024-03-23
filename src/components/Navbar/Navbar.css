@@ -44,12 +44,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 400px;
   }
   .buttonContainer {
     width: 365px;
     display: flex;
     justify-content: space-between;
-    margin-left: 132px;
+    margin-left: 332px;
   }
   .hamburger {
     display: none;
