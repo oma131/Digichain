@@ -175,10 +175,9 @@ function Landing() {
             </p>
           </div>
           <div className='w-[100%]'>
-            <div className='flex  w-[345px] ml-[191px] mt-[32px] flex justify-between'>
-              <Button style={{ backgroundColor: '#060317', color: 'white'}} >Connect Wallet</Button>
-              <Button style={{ backgroundColor: 'transparent', color: '#060317', border: '2px solid #060317' }}>Track Product</Button>
-            </div>
+            <NavLink to='/wallet' className='flex  w-[345px] ml-[191px] mt-[32px] flex justify-between'>
+              <Button style={{ backgroundColor: '#060317', color: 'white', fontSize:'16px'}} >Connect Wallet</Button>
+            </NavLink>
           </div>
         </section>
       </div>
