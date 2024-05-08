@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../components/Buttons/Button'
 import Metamask from '../assets/Metamask.png'
 import TrustWallet from '../assets/TrustWallet.png'
 
@@ -7,23 +6,24 @@ import { NavLink } from "react-router-dom";
 
 const Wallet = () => {
   return (
-    <div className='bg-[#070318] flex justify-center items-center h-[100vh] w-[100%]'>
-        <div className='bg-[#09061E] w-[644px] h-[400px] flex justify-center items-center'>
-            <div className='text-white'>
-                <h3 className='text-[24px] font-[700] text-center'>Connect Wallet</h3>
-                <div className='mt-[20px] h-[148px] flex flex-col justify-between'>
-                    <NavLink to='/email'>
-                        <Button style={{border:'1px solid #A4A4A9', cusor:'pointer', width:'460px', height:'64px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                            <img src={Metamask} className='mr-[10px]' alt='metamask button' />
+    <div className='bg-[#070318] px-10 flex justify-center items-center h-screen w-full'>
+        <div className='bg-[#09061E] w-full  flex justify-center items-center px-5'>
+            <div className='text-white py-10'>
+                <h3 className='text-2xl font-bold text-center'>Connect Wallet</h3>
+                <div className='mt-8 flex flex-col gap-6 justify-between'>
+                    <NavLink to='/email' className="w-full" >
+                        <button  className="w-full flex justify-center items-center text-white hover:bg-[#A4A4A9] border-2 border-[#A4A4A9] px-10 py-4 rounded-full text-sm md:text-base font-medium">
+                            <img src={Metamask} className='mr-3' alt='metamask button' />
                             Metamask
-                        </Button>
+                        </button>
                     </NavLink>
-                    <NavLink to='/email'>
-                        <Button style={{border:'1px solid #A4A4A9', cusor:'pointer', width:'460px', height:'64px', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                            <img src={TrustWallet} className='mr-[10px]' alt='Trustwallet button' />
-                            Trustwallet
-                        </Button>
+                    <NavLink to='/email' className="w-full" >
+                        <button  className="w-full flex justify-center items-center text-white hover:bg-[#A4A4A9] border-2 border-[#A4A4A9] px-10 py-4 rounded-full text-sm md:text-base font-medium">
+                            <img src={TrustWallet} className='mr-3' alt='metamask button' />
+                            Trust Wallet
+                        </button>
                     </NavLink>
+                    
                 </div>
             </div>
         </div>

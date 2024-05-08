@@ -8,7 +8,7 @@ import Consumer from '../../assets/Consumer.png'
 
 const Cards = () => {
   return (
-    <div className='lg:flex justify-between items-center mt-[42px] sm:block'>
+    <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
         <Card 
             img={Producer}
             head="For Producers"

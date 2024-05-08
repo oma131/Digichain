@@ -17,6 +17,8 @@ import Shipment from './pages/Shipment.jsx';
 import Tracker from './pages/Tracker.jsx';
 import Logout from './pages/Logout.jsx';
 
+import Api from './pages/Api.jsx'
+
 
 
 
@@ -28,6 +30,7 @@ const App = () => {
         <Route path="/role" element={<Role />} />
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/email" element={<Email />} />
+        <Route path="/api" element={<Api />} />
         <Route path="/dashboard/*" element={<DashboardWithSidebar />} />
         <Route path="/createProduct" element={<SidebarRouteWrapper><CreateProd /></SidebarRouteWrapper>} />
         <Route path="/productList" element={<SidebarRouteWrapper><ProdList /></SidebarRouteWrapper>} />

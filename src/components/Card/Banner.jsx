@@ -5,14 +5,16 @@ import Button from '../Buttons/Button'
 import { NavLink } from 'react-router-dom'
 const Banner = (props) => {
   return (
-    <div className='bg-[#0A071F] w-[1100px] m-auto h-[412px] flex justify-between rounded-lg px-[30px] py-[50px] mt-[42px]'>
-        <div className='w-[580px] h-[276px] pl-[39px] flex flex-col justify-between text-left'>
-            <h2 className='text-[40px] font-[500]'>{props.title}</h2>
-            <p className='text-[18px] font-[400]'>
+    <div className='bg-[#0A071F] w-full  gap-8 text-white flex flex-col md:flex-row justify-between rounded-lg px-10 py-10 '>
+        <div className='w-full flex flex-col gap-2 justify-between text-left'>
+            <h2 className='text-2xl md:text-5xl font-semibold'>{props.title}</h2>
+            <p className='text-base'>
               {props.text1} <span className='text-[#6F4FF2]'>{props.connect}</span> {props.text2}
             </p>
-            <NavLink to='/wallet'>
-              <Button style={{ backgroundColor: 'transparent', color: 'white', border: '2px solid #6F4FF2', fontSize:'16px' }}>{props.button}</Button>
+            <NavLink to='/wallet' className="w-full" >
+              <button  className="w-full md:w-60 flex justify-center items-center hover:text-white hover:bg-[#6F4FF2] text-[#6F4FF2] border-2 border-[#6F4FF2] px-10 py-4 rounded-full text-sm md:text-base font-medium">
+              {props.button}
+              </button>
             </NavLink>
         </div>
         <div>

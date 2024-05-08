@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { shipments } from '../utils/shipmentData'
 import { GrInbox } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
-import Button from '../components/Buttons/Button'
 import Search from '../components/Search';
 
 export function getLastFiveShipments() {
@@ -12,6 +11,8 @@ export function getLastFiveShipments() {
 
 const Shipment = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [dropdownVisible, setDropdownVisible] = useState({});
+
   const shipmentsPerPage = 10;
 
   // Calculate index of the first and last shipment of the current page
@@ -28,58 +29,98 @@ const Shipment = () => {
     pageNumbers.push(i);
   }
 
+ 
+
+  // Function to toggle dropdown visibility for a shipment
+  const toggleDropdown = (shipmentId) => {
+    setDropdownVisible({
+      ...dropdownVisible,
+      [shipmentId]: !dropdownVisible[shipmentId]
+    });
+  };
+
   return (
-    <div className='pt-[52px] pl-[42px]'>
-      <div className='flex justify-between'>
-        <div className='w-[375px] flex justify-between items-center'>
-          <div className='text-[24px] font-[600] flex items-center'>
+    <div className='w-full pt-7 px-10'>
+      <div className='flex justify-between text-white'>
+        <div className='w-full flex justify-between items-center'>
+          <div className='text-lg font-semibold flex items-center'>
             <GrInbox />
-            <h2 className='ml-[16px]'>Shipment History</h2>
+            <h2 className='ml-4'>Shipment History</h2>
           </div>
-          <div className='text-[16px] flex justify-center items-center bg-[#0F0C25] w-[88px] rounded-full'>
-            <p className='mr-[6px]'>filter</p>
+          <div className='text-sm flex justify-center items-center bg-[#0F0C25] px-4 py-2 rounded-full'>
+            <p className='mr-4'>filter</p>
             <IoIosArrowDown />
           </div>
         </div>
         <Search />
       </div>
       {currentShipments.map((shipment) => (
-        <div key={shipment.id} className="w-[985px] bg-[#0F0C25] px-[43px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
-          <div className=''>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
-            <div className='text-[14px] font-[500]'>{shipment.productName}</div>
-          </div>
-          <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product ID</div> 
-            <div className='text-[14px] font-[500]'>{shipment.productId}</div>
-          </div>
-          <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Status</div> 
-            <div className={`text-[14px] font-[500] ${
-              shipment.status === 'Delivered' ? 'text-green-500' :
-              shipment.status === 'Pending' ? 'text-red-500' : 'text-yellow-500'
-            }`}>
-              {shipment.status}
+        <div key={shipment.id}>
+          <div className=" w-full grid grid-cols-3 lg:grid-cols-6 gap-6 items-center bg-[#0F0C25] text-xs md:text-base font-semibold text-white px-8 py-4 mt-6">
+            <div className=''>
+              <div className='text-[#3D3959]'>Product</div> 
+              <div className=''>{shipment.productName}</div>
+            </div>
+            <div className='block text-center'>
+              <div className='text-[#3D3959]'>Product ID</div> 
+              <div className=''>{shipment.productId}</div>
+            </div>
+            <div className='hidden lg:block text-center'>
+              <div className='text-[#3D3959]'>Status</div> 
+              <div className={`${
+                shipment.status === 'Delivered' ? 'text-green-500' :
+                shipment.status === 'Pending' ? 'text-red-500' : 'text-yellow-500'
+              }`}>
+                {shipment.status}
+              </div>
+            </div>
+            <div className='hidden lg:block text-center'>
+              <div className='text-[#3D3959]'>Distributor ID</div> 
+              <div>{shipment.distributorId}</div>
+            </div>
+            <button className='hidden lg:block w-24 h-12 text-white bg-[#6F4FF2] hover:bg-transparent hover:text-[#6F4FF2] rounded-full text-base font-semibold '>
+              View
+            </button>
+            <button className='hidden lg:block w-24 h-12 text-[#6F4FF2] border-2 border-[#6F4FF2] hover:bg-[#6F4FF2] hover:text-white  rounded-full text-base font-semibold'>
+              Track
+            </button>
+
+            {/* Toggle button for dropdown */}
+            <div className='-mr-2 w-full flex place-content-end lg:hidden'>
+              <button className='text-[#6F4FF2]  focus:outline-none' onClick={() => toggleDropdown(shipment.id)}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M2 10a2 2 0 114 0 2 2 0 01-4 0zM10 6a2 2 0 100 4 2 2 0 000-4z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M14 10a2 2 0 114 0 2 2 0 01-4 0zM10 14a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+              </button>
             </div>
           </div>
-          <div className='text-center'>
-            <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div> 
-            <div className='text-[14px] font-[500]'>{shipment.distributorId}</div>
-          </div>
 
-          <div className='w-[230px] flex justify-between'>
-            <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width:'108px', height:'44px'}} >View</Button>
-            <Button style={{ width:'108px', height:'44px', color: 'white', border: '2px solid #6F4FF2' }}>Track</Button>
-          </div>
-          
+          {/* Dropdown menu */}
+          {dropdownVisible[shipment.id] && (
+              <div className='absolute z-10 right-20 text-white text-xs flex flex-col gap-4 rounded-lg px-5 py-4 bg-[#060317] border  '>
+                <div className='text-left'>
+                  <div className={` ${
+                    shipment.status === 'Delivered' ? 'text-green-500' :
+                    shipment.status === 'Pending' ? 'text-red-500' : 'text-yellow-500'
+                  }`}>{shipment.status}</div>
+                </div>
+                <div className='text-left'>
+                  <div>{shipment.distributorId}</div>
+                </div>
+                <div className='text-left '>View</div>
+                <div className='text-left '>Track</div>
+              </div>
+            )}
         </div>
       ))}
       {/* Pagination */}
-      <div className="w-[100%] flex justify-center mt-[20px]">
+      <div className="w-full flex justify-center gap-3 my-3 ">
         {pageNumbers.map(number => (
           <button 
             onClick={() => paginate(number)} 
-            className={`bg-[#6F4FF2] w-[30px] ml-[10px] rounded border ${currentPage === number ? 'bg-gray-500' : 'border-transparent'}`}
+            className={`bg-gray-500 w-10 p-2  ml-[10px] rounded border ${currentPage === number ? 'bg-purple-600' : 'border-transparent'}`}
             key={number} 
             >
             {number}

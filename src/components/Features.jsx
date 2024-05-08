@@ -9,10 +9,10 @@ import Computer from '../assets/Computer.png'
 
 const Features = () => {
   return (
-    <div className='mt-[132px]'>
-        <h2 className='text-left text-[40px] font-[500]'>Key Features</h2>
-        <div className='flex justify-between items-center m-auto'>
-            <div className='h-[560px] mt-[32px]  flex flex-col justify-between'>
+    <div className='mt-20 mx-auto  max-w-screen-xl px-8 pt-16'>
+        <h2 className='text-left text-5xl text-white font-semibold'>Key Features</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 md:gap-10 items-center'>
+            <div className=' mt-10 gap-6  flex flex-col justify-between'>
                 <SmallCard
                     img={Location}
                     main_text="Transparent Tracking"
@@ -35,7 +35,7 @@ const Features = () => {
                 />
             </div>
             <div>
-                <img src={Dashboard} className='h-[555px] w-[614px] rounded-lg' alt='key features' />
+                <img src={Dashboard} className=' w-full rounded-xl' alt='key features' />
             </div>
         </div>
     </div>

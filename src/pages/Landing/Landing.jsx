@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer'
-import Button from '../../components/Buttons/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
 
@@ -28,11 +27,11 @@ function Landing() {
 
   return (
     <div>
-      <div className='text-center bg-[#070318] text-white px-[85px] pb-[122px] w-[100%]'>
+      <div>
         <Navbar />
 
         <section className=" text-white">
-          <div className="mx-auto max-w-screen-xl px-4 py-16 lg:flex lg:h-[383px]">
+          <div className="mx-auto max-w-screen-xl px-4 pt-16 lg:flex ">
             <div className="mx-auto max-w-3xl text-center">
               <h1
                 className="text-white text-3xl font-extrabold text-transparent sm:text-5xl"
@@ -47,29 +46,33 @@ function Landing() {
                 powered by blockchain technology. 
               </p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <NavLink to='/wallet'>
-                  <Button style={{ backgroundColor: '#6F4FF2', color: 'white', fontSize: '14px'}} >Connect Wallet</Button>
+              <div className="mt-8 w-full  flex flex-col md:flex-row items-center justify-center gap-4">
+                <NavLink to='/wallet' className='w-full'>
+                  <button  className="w-full flex justify-center text-white bg-[#6F4FF2] hover:text-[#6F4FF2] hover:border hover:border-[#6F4FF2] hover:bg-transparent hover:text-[#6F4FF2] px-10 py-4 rounded-full text-sm md:text-base font-medium">
+                    Connect Wallet
+                  </button>
                 </NavLink>
-                <Button style={{ backgroundColor: 'transparent', color: 'white', border: '2px solid #6F4FF2' }}>
-                  <FontAwesomeIcon icon={faCirclePlay} />
-                  Watch Video
-                </Button>
+                <NavLink to='/wallet' className="w-full" >
+                  <button  className="w-full flex justify-center items-center hover:text-white hover:bg-[#6F4FF2] text-[#6F4FF2] border-2 border-[#6F4FF2] px-10 py-4 rounded-full text-sm md:text-base font-medium">
+                    <FontAwesomeIcon icon={faCirclePlay} className='mr-3'/>
+                    Watch Video
+                  </button>
+                </NavLink>
               </div>
             </div>
           </div>
         </section>
         
         <section>
-          <img src={HeroImg} className='m-auto' alt='supply chain vector' />
+          <img src={HeroImg} className='mx-auto w-1/2 md:w-1/4 mt-16' alt='supply chain vector' />
         </section>
 
         <section>
-          <div className="flex justify-center items-center h-screen">
-            <div className="bg-[url('./assets/Tech.png')] bg-cover bg-center h-[490px] w-[1100px] flex justify-start items-center">
-              <div className='text-left flex flex-col ml-[70px]'>
-                <h2 className='text-[40px] font-[500]'>What is DigiChain?</h2>
-                <p className='w-[865px] text-[20px] font-[400] mt-[28px]'>
+          <div className="flex justify-center items-center w-full mt-32 mx-auto px-8 md:px-20">
+            <div className="bg-[url('./assets/Tech.png')] bg-cover bg-center w-full flex p-14 md:p-20 justify-start items-center">
+              <div className='text-left flex flex-col text-white'>
+                <h2 className='text-lg md:text-3xl font-semibold'>What is DigiChain?</h2>
+                <p className=' text-xs md:text-base  mt-8 '>
                   DigiChain is a next-generation supply chain tracking 
                   platform built on blockchain technology. 
                   Our platform connects producers, distributors, 
@@ -83,20 +86,20 @@ function Landing() {
           </div>
         </section>
 
-        <section>
-          <h2 className='text-[40px] font-[500]'>
+        <section className='mt-32 text-white mx-auto px-14 md:px-20'>
+          <h2 className='text-3xl  font-semibold '>
             How Does DigiChain Work?
           </h2>
           <Cards />
         </section>
 
-        <section className='m-auto'>
+        <section className=''>
           <Features />
         </section>
         
-        <section className='mt-[114px]'>
+        <section className='mt-20 px-8 flex flex-col gap-8'>
           <Banner 
-            title=" Connect and Track"
+            title="Connect and Track"
             text1="Connect Your Ethereum Wallet:
             Seamlessly connect your Ethereum wallet to
             access the DigiChain dashboard.
@@ -131,53 +134,52 @@ function Landing() {
           
         </section>
 
-        <section className='mt-[92px] w-[1157px] m-auto'>
-          <h2 className='text-[40px] font-[500] leading-8'>Why Choose Digichain</h2>
-          <div className='mt-[32px] flex justify-between items-center'>
-            <div className='h-[323px] flex flex-col justify-between'>
-              <About 
-                img={Guard}
-                title="Trust"
-                text="Build consumer trust with transparent
-                product information and traceability."
-              />
-              <About 
-                img={Checkmark}
-                title="Reliability "
-                text="Ensure product authenticity and 
-                quality through secure tracking"
-              />
-            </div>
-            <div className='h-[323px] flex flex-col justify-between'>
-              <About 
-                img={Arrow}
-                title="Efficiency"
-                text="Streamline supply chain operations 
-                and reduce manual processes."
-              />
-              <About 
-                img={Lightbulb}
-                title="Insight"
-                text="Generate reports and analytics for informed decision-making."
-              />
-            </div>
+        <section className='mt-24 w-full px-12 text-white '>
+          <h2 className='text-4xl font-semibold leading-8'>Why Choose Digichain</h2>
+          <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <About 
+              img={Guard}
+              title="Trust"
+              text="Build consumer trust with transparent
+              product information and traceability."
+            />
+            <About 
+              img={Checkmark}
+              title="Reliability "
+              text="Ensure product authenticity and 
+              quality through secure tracking"
+            />
+            <About 
+              img={Arrow}
+              title="Efficiency"
+              text="Streamline supply chain operations 
+              and reduce manual processes."
+            />
+            <About 
+              img={Lightbulb}
+              title="Insight"
+              text="Generate reports and analytics for informed decision-making."
+            />
           </div>
         </section>
 
-        <section className='bg-[#6F4FF2] w-[1100px] h-[369px] mt-[142px] rounded-lg flex flex-col justify-center items-center m-auto'>
-          <div className='w-[898px] h-[163px] text-left flex flex-col justify-between'>
-            <p className='text-[32px] font-[500]'>
-              Lets revolutionize the way 
-              products move from production to consumption together.
-            </p>
-            <p className='text-[24px] font-[400]'>
-              Experience DigiChain - Where Trust Meets Transparency
-            </p>
-          </div>
-          <div className='w-[100%]'>
-            <NavLink to='/wallet' className='flex  w-[345px] ml-[191px] mt-[32px] flex justify-between'>
-              <Button style={{ backgroundColor: '#060317', color: 'white', fontSize:'16px'}} >Connect Wallet</Button>
+        <section className='px-10 md:px-16 mt-16'>
+          <div className='bg-[#6F4FF2] w-full py-7 px-6 rounded-lg flex flex-col justify-center '>
+            <div className='w-full   text-left'>
+              <p className='text-xl md:text-3xl font-semibold'>
+                Lets revolutionize the way 
+                products move from production to consumption together.
+              </p>
+              <p className='text-base md:text-2xl mt-3'>
+                Experience DigiChain - Where Trust Meets Transparency
+              </p>
+            </div>
+            <NavLink to='/wallet' >
+              <button className='text-white bg-[#060317] hover:text-[#060317] hover:border hover:border-[#060317] hover:bg-transparent px-5 md:px-10 py-2 md:py-4 mt-4 rounded-full text-sm  font-medium'>
+                Connect Wallet
+              </button>
             </NavLink>
+            
           </div>
         </section>
       </div>

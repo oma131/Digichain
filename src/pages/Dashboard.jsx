@@ -15,11 +15,11 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='w-[100%] p-[42px] pt-[10px]'>
-      <div className='w-[969px] '>
+    <div className='w-full px-10 py-10 '>
+      <div className='w-full '>
         <Search onSearch={handleSearch} />
         <ShipmentTracker />
-        <div>
+        <div className='w-full '>
           <RecentShipments />
         </div>
       </div>

@@ -32,51 +32,53 @@ function ShipmentTracker() {
   const deliveredSign = deliveredPercentage > 50 ? '+' : '-';
 
   return (
-    <div className='bg-[#09061E] mt-[22px] w-[968px] h-[318px] px-[38px] py-[32px] flex justify-between rounded-lg'>
-      <div className='relative flex flex-col'>
-        <div className='absolute w-[76px] h-[74px] rounded-full ml-[70px]  bg-[#6F4FF2] flex justify-center items-center m-auto'>
-            <img src={Piechart} alt='dashboard vector'/>
+    <div className=''>
+      <div className='grid grid-cols-1 lg:grid-cols-3 rounded-lg text-white bg-[#09061E] mt-10 gap-4 px-9 py-12'>
+        <div className='relative flex flex-col w-full items-center'>
+          <div className='absolute w-20 h-20 rounded-full  bg-[#6F4FF2] flex justify-center items-center '>
+              <img src={Piechart} alt='dashboard vector'/>
+          </div>
+          <div className='border-solid border-2 border-slate-700 mt-10 rounded-lg bg-[#0F0C25] px-20 pb-10 md:px-10 md:pb-5 '>
+              <div className='mt-14  text-center flex flex-col justify-between'>
+                  <div className='text-4xl font-semibold'>{totalShipments}</div>
+                  <p className='text-[20px] font-[400]'>Total Shipments</p>  
+                  <div className={`text-[16px] flex items-center justify-center ${totalArrowColor}`}>
+                      <span>{totalPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
+                      <span className='ml-[2px]'>{totalSign}{totalPercentage}%</span>
+                  </div>
+              </div>
+          </div>
         </div>
-        <div className='border-solid border-2 border-slate-700 mt-[40px] rounded-lg bg-[#0F0C25] w-[217px] h-[217px] '>
-            <div className='mt-[56px] h-[127px] text-center flex flex-col justify-between'>
-                <div className='text-[42px] font-[600]'>{totalShipments}</div>
-                <p className='text-[20px] font-[400]'>Total Shipments</p>  
-                <div className={`text-[16px] flex items-center justify-center ${totalArrowColor}`}>
-                    <span>{totalPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
-                    <span className='ml-[2px]'>{totalSign}{totalPercentage}%</span>
-                </div>
-            </div>
+        <div className='relative flex flex-col w-full items-center'>
+          <div className='absolute w-20 h-20 rounded-full  bg-[#6F4FF2] flex justify-center items-center '>
+              <img src={Package} alt='dashboard vector'/>
+          </div>
+          <div className='border-solid border-2 border-slate-700 mt-10 rounded-lg bg-[#0F0C25] px-20 pb-10 md:px-10 md:pb-5 '>
+              <div className='mt-14  text-center flex flex-col justify-between'>
+                  <div className='text-4xl font-semibold'>{pendingShipments}</div>
+                  <p className='text-[20px] font-[400]'>Pending Shipments</p>  
+                  <div className={`text-[16px] flex items-center justify-center ${pendingArrowColor}`}>
+                      <span>{pendingPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
+                      <span className='ml-[2px]'>{pendingSign}{pendingPercentage}%</span>
+                  </div>
+              </div>
+          </div>
         </div>
-      </div>
-      <div className='relative flex flex-col'>
-        <div className='absolute w-[76px] h-[74px] rounded-full ml-[70px]  bg-[#6F4FF2] flex justify-center items-center m-auto'>
-            <img src={Package} alt='dashboard vector'/>
-        </div>
-        <div className='border-solid border-2 border-slate-700 mt-[40px] rounded-lg bg-[#0F0C25] w-[217px] h-[217px] '>
-            <div className='mt-[56px] h-[127px] text-center flex flex-col justify-between'>
-                <div className='text-[42px] font-[600]'>{pendingShipments}</div>
-                <p className='text-[20px] font-[400]'>Pending</p>  
-                <div className={`text-[16px] flex items-center justify-center ${pendingArrowColor}`}>
-                    <span>{totalPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
-                    <span className='ml-[2px]'>{pendingSign}{pendingPercentage}%</span>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div className='relative flex flex-col'>
-        <div className='absolute w-[76px] h-[74px] rounded-full ml-[70px]  bg-[#6F4FF2] flex justify-center items-center m-auto'>
-            <img src={Bus} alt='dashboard vector'/>
-        </div>
-        <div className='border-solid border-2 border-slate-700 mt-[40px] rounded-lg bg-[#0F0C25] w-[217px] h-[217px] '>
-            <div className='mt-[56px] h-[127px] text-center flex flex-col justify-between'>
-                <div className='text-[42px] font-[600]'>{deliveredShipments}</div>
-                <p className='text-[20px] font-[400]'>Delivered Shipments</p>  
-                <div className={`text-[16px] flex items-center justify-center ${deliveredArrowColor}`}>
-                    <span>{deliveredPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
-                    <span className='ml-[2px]'>{deliveredSign}{deliveredPercentage}%</span>
-                </div>
-            </div>
-        </div>
+        <div className='relative flex flex-col w-full items-center'>
+          <div className='absolute w-20 h-20 rounded-full  bg-[#6F4FF2] flex justify-center items-center '>
+              <img src={Bus} alt='dashboard vector'/>
+          </div>
+          <div className='border-solid border-2 border-slate-700 mt-10 rounded-lg bg-[#0F0C25] px-20 pb-10 md:px-10 md:pb-5 '>
+              <div className='mt-14  text-center flex flex-col justify-between'>
+                  <div className='text-4xl font-semibold'>{deliveredShipments}</div>
+                  <p className='text-[20px] font-[400]'>Delivered Shipments</p>  
+                  <div className={`text-[16px] flex items-center justify-center ${deliveredArrowColor}`}>
+                      <span>{deliveredPercentage > 50 ? <FaArrowUp /> : <FaArrowDown />}</span>
+                      <span className='ml-[2px]'>{deliveredSign}{deliveredPercentage}%</span>
+                  </div>
+              </div>
+          </div>
+        </div>      
       </div>
     </div>
   );
