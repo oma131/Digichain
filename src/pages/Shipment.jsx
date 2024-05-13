@@ -42,13 +42,13 @@ const Shipment = () => {
   return (
     <div className='w-full pt-7 px-10'>
       <div className='flex justify-between text-white'>
-        <div className='w-full flex justify-between items-center'>
-          <div className='text-lg font-semibold flex items-center'>
+        <div className='w-full flex flex-col md:flex-row justify-between md:items-center'>
+          <div className='text-sm md:text-lg font-semibold flex items-center'>
             <GrInbox />
             <h2 className='ml-4'>Shipment History</h2>
           </div>
-          <div className='text-sm flex justify-center items-center bg-[#0F0C25] px-4 py-2 rounded-full'>
-            <p className='mr-4'>filter</p>
+          <div className='text-sm flex items-center justify-center w-20 bg-[#0F0C25] py-1 gap-2 rounded-full'>
+            <p>filter</p>
             <IoIosArrowDown />
           </div>
         </div>

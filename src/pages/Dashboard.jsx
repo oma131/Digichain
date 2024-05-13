@@ -17,7 +17,7 @@ const Dashboard = () => {
   return (
     <div className='w-full px-10 py-10 '>
       <div className='w-full '>
-        <Search onSearch={handleSearch} />
+        {/* <Search onSearch={handleSearch} /> */}
         <ShipmentTracker />
         <div className='w-full '>
           <RecentShipments />

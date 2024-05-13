@@ -28,67 +28,76 @@ const ProdList = () => {
   }
 
   return (
-    <div className='pt-[52px] pl-[42px]'>
-      <div className='flex justify-between'>
-        <div className='w-[375px] flex justify-between items-center'>
-          <div className='text-[24px] font-[600] flex items-center'>
-            <FaList />
-            <h2 className='ml-[16px]'>Product List</h2>
+    <div className='py-8 md:py-16 px-8 md:p-14 md:block flex items-center justify-center'>
+      <div className='w-full text-white pb-10'>
+        <div className='flex justify-between items-center gap-4'>
+          <div className='w-full flex justify-between items-center'>
+            <div className='text-lg md:text-2xl gap-2 md:gap-4 font-semibold flex items-center'>
+              <FaList />
+              <h2 >Product List</h2>
+            </div>
+            <div className='text-xs gap-2  md:text-base py-1 md:py-2 md:px-4 px-3 flex justify-center items-center bg-[#0F0C25] rounded-full'>
+              <p>Recent</p>
+              <IoIosArrowDown />
+            </div>
           </div>
-          <div className='text-[16px] flex justify-center items-center bg-[#0F0C25] w-[88px] rounded-full'>
-            <p className='mr-[6px]'>Recent</p>
-            <IoIosArrowDown />
-          </div>
+          <button className='hidden md:block w-32 h-12 text-white bg-[#6F4FF2] hover:bg-transparent hover:text-[#6F4FF2] rounded-full text-base font-semibold '>
+            Send
+          </button>
         </div>
-        <Button style={{ backgroundColor: '#6F4FF2', color: 'white', width: '108px', height: '44px' }} onClick={toggleModal}>Send</Button>
-      </div>
-      {currentShipments.map((shipment) => (
-        <div key={shipment.id} className="w-[985px] items-center bg-[#0F0C25] px-[67px] py-[10px] mt-[26px] flex justify-between tems-center rounded-lg mt-[12px]">
-          <div className='w-[366px] flex justify-between items-center'>
-            <div className=''>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Product</div>
-              <div className='text-[14px] font-[500]'>{shipment.productName}</div>
-            </div>
-            <div className='text-center'>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Product ID</div>
-              <div className='text-[14px] font-[500]'>{shipment.productId}</div>
-            </div>
-            <div className='text-center'>
-              <div className='text-[14px] font-[500] text-[#3D3959]'>Quantity</div>
-              <div className='text-[14px] font-[500]'>
-                {shipment.quantity}
+        {currentShipments.map((shipment) => (
+          <div key={shipment.id} className="w-full items-center bg-[#0F0C25] px-6 md:px-10 py-4 flex justify-between items-center rounded-lg mt-6">
+            <div className='w-full flex gap-4 md:gap-10 items-center'>
+              <div className=''>
+                <div className='text-sm md:text-base  text-[#3D3959]'>Product</div>
+                <div className='text-sm md:text-base font-semibold'>{shipment.productName}</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-sm md:text-base text-[#3D3959]'>Product ID</div>
+                <div className='text-sm md:text-base font-semibold'>{shipment.productId}</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-sm md:text-base text-[#3D3959]'>Quantity</div>
+                <div className='text-sm md:text-base font-semibold'>
+                  {shipment.quantity}
+                </div>
               </div>
             </div>
+
+
+            <input
+              type="checkbox"
+              className='w-6 h-6 flex ml-2 justify-end items-center rounded border-white focus:ring-white'
+              style={{
+                backgroundColor: 'transparent', // Set initial background color
+                '--checked-bg-color': '#6F4FF2', // Define custom property for checked background color
+              }}
+              onChange={(e) => e.target.style.backgroundColor = e.target.checked ? 'var(--checked-bg-color)' : 'transparent'} // Change background color based on checkbox state
+            />
+
           </div>
-
-
-          <input
-            type="checkbox"
-            className='w-[30px] h-[30px] flex justify-center items-center rounded bg-red-100 border-white text-red-500 focus:ring-white'
-            style={{
-              backgroundColor: 'transparent', // Set initial background color
-              '--checked-bg-color': '#6F4FF2', // Define custom property for checked background color
-            }}
-            onChange={(e) => e.target.style.backgroundColor = e.target.checked ? 'var(--checked-bg-color)' : 'transparent'} // Change background color based on checkbox state
-          />
-
-        </div>
-      ))}
-      {/* Pagination */}
-      <div className="w-[100%] flex justify-center mt-[20px]">
-        {pageNumbers.map(number => (
-          <button
-            onClick={() => paginate(number)}
-            className={`bg-[#6F4FF2] w-[30px] ml-[10px] rounded border ${currentPage === number ? 'bg-gray-500' : 'border-transparent'}`}
-            key={number}
-          >
-            {number}
-          </button>
         ))}
-      </div>
+        <div className='w-full mt-4 flex justify-end'>
+          <button className='block md:hidden  w-24 h-10 text-white bg-[#6F4FF2] hover:bg-transparent hover:text-[#6F4FF2] rounded-lg text-base font-semibold '>
+            Send
+          </button>
+        </div>
+        {/* Pagination */}
+        <div className="w-full flex justify-center mt-6 gap-4">
+          {pageNumbers.map(number => (
+            <button
+              onClick={() => paginate(number)}
+              className={`bg-[#6F4FF2] w-8  rounded border ${currentPage === number ? 'bg-gray-500' : 'border-transparent'}`}
+              key={number}
+            >
+              {number}
+            </button>
+          ))}
+        </div>
 
-      {/* Render the form modal */}
-      <SendModal isOpen={isModalOpen} onClose={toggleModal} />
+        {/* Render the form modal */}
+        <SendModal isOpen={isModalOpen} onClose={toggleModal} />
+      </div>
     </div>
   );
 };
