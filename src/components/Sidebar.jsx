@@ -50,7 +50,7 @@ const Sidebar = ({children}) => {
         <div className="flex flex-col md:flex-row">
            <div className="w-full md:w-64 md:h-screen md:bg-[#09061E] md:text-black fixed md:fixed overflow-y-auto md:overflow-y-visible shadow-2xl  bottom-0 md:top-0 md:left-0">
                <div className="hidden p-4 md:flex items-center justify-center md:justify-start">
-                    <h1 className="text-2xl font-bold">Digichain</h1>
+                    <h1 className="text-2xl text-white font-bold">Digichain</h1>
                </div>
                <div className="md:block hidden">
                     {menuItem.map((item, index)=>(
